@@ -1,6 +1,7 @@
 package com.example.se.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -11,13 +12,12 @@ public class Answer {
     private UUID id = UUID.randomUUID();
     private UUID questionId;
     private String title;
-    private List<String> recipes;
+    private ArrayList<String> recipes;
 
     public Answer() {
     }
 
-    public Answer(UUID id,UUID questionId, String title, List<String> recipes) {
-        this.id = id;
+    public Answer(UUID questionId, String title, ArrayList<String> recipes) {
         this.questionId = questionId;
         this.title = title;
         this.recipes = recipes;
@@ -27,15 +27,20 @@ public class Answer {
         this.title = title;
     }
 
+    public Answer(String title, UUID questionId) {
+        this.questionId = questionId;
+        this.title = title;
+    }
+
     public UUID getId() {
         return id;
     }
 
-    public UUID getQuestion_id() {
+    public UUID getQuestionId() {
         return questionId;
     }
 
-    public void setQuestion_id(UUID questionId) {
+    public void setQuestionId(UUID questionId) {
         this.questionId = questionId;
     }
 
@@ -55,7 +60,7 @@ public class Answer {
         return recipes;
     }
 
-    public void setRecipes(List<String> recipes) {
+    public void setRecipes(ArrayList<String> recipes) {
         this.recipes = recipes;
     }
 }

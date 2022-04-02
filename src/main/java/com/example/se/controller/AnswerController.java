@@ -29,8 +29,8 @@ public class AnswerController {
     }
 
     @PostMapping
-    public ResponseEntity<Answer> addAnswer(@RequestBody Answer recipe) {
-        return answerService.addAnswer(recipe);
+    public ResponseEntity<Answer> addAnswer(@RequestBody Answer answer) {
+        return answerService.addAnswer(answer);
     }
 
     @DeleteMapping(path = "/{id}")

@@ -44,8 +44,8 @@ public class AnswerService {
 
     public ResponseEntity<Answer> addAnswer(Answer answer) {
         try {
-            Answer newAnswer = answerRepository.save(new Answer(answer.getTitle()));
-            return new ResponseEntity<>(answer, HttpStatus.CREATED);
+            Answer newAnswer = answerRepository.save(new Answer(answer.getQuestionId(), answer.getTitle(), (ArrayList<String>) answer.getRecipes()));
+            return new ResponseEntity<>(newAnswer, HttpStatus.CREATED);
         } catch (Exception e) {
             System.out.println(HttpStatus.INTERNAL_SERVER_ERROR);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

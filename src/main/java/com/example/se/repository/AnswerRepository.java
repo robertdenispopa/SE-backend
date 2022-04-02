@@ -9,5 +9,5 @@ import java.util.List;
 import java.util.UUID;
 @Repository
 public interface AnswerRepository extends MongoRepository<Answer, UUID> {
-    List<Answer> findByQuestionId(UUID question_Id);
+    List<Answer> findByQuestionId(UUID question_id);
 }
